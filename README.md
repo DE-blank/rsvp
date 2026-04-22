@@ -50,6 +50,13 @@ pyinstaller --windowed --name "Speedreader" --icon "icon.icns" SpeedReader.py
 ```
 
 ## Files
+
 - `SpeedReader.py`: The main Python script.
+- `Speedreader.spec`: Build configuration for PyInstaller.
 - `icon.icns`: Application icon for macOS.
-- `dist/Speedreader.app`: The compiled application (after building).
+- `README.md`: Project documentation.
+- `.gitignore`: Git exclusion rules.
+
+---
+
+**Disclaimer:** This project, including parts of its source code and this documentation, was generated with the assistance of AI.
