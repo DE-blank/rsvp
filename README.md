@@ -1,67 +1,55 @@
-# ⚡ SpeedReader (RSVP)
+# SpeedReader (RSVP)
 
-Ein minimalistisches, hochperformantes Tool für effizientes Lesen direkt auf deinem Desktop.
+A simple desktop application for RSVP reading built with Python and Tkinter.
 
-## 📖 Was ist RSVP?
+## What is RSVP?
 
-**RSVP** steht für **Rapid Serial Visual Presentation**. 
+**RSVP** stands for **Rapid Serial Visual Presentation**. 
 
-Anstatt deine Augen von links nach rechts über eine Zeile zu bewegen (was Zeit kostet), präsentiert RSVP dir jedes Wort einzeln an derselben Stelle. Das eliminiert die Zeit, die deine Augen für die Fokussierung und das Springen zwischen Wörtern benötigen, und verhindert das "Subvokalisieren" (das Mitsprechen im Kopf). Dadurch kannst du deine Lesegeschwindigkeit massiv steigern – oft auf über 500 oder 600 Wörter pro Minute!
+Instead of moving your eyes across lines of text, this tool displays words one by one in the center of the screen. This method reduces the need for eye movement, which can help some people read through text faster or with more focus.
 
----
+## Features
 
-## 🚀 Features
+- **Adjustable Speed:** Set your preferred Words Per Minute (WPM).
+- **Navigation:** Buttons and shortcuts to pause or skip through the text.
+- **Minimalist UI:** A basic text input and a display label for reading.
 
-- **Einstellbare Geschwindigkeit:** Wähle deine WPM (Words Per Minute) selbst.
-- **Volle Kontrolle:** Pause, Play und Navigation per Tastatur.
-- **Präzises Springen:** Springe 5 Wörter vor oder zurück, um nichts zu verpassen.
-- **Ablenkungsfrei:** Ein sauberes, fokussiertes Interface.
+## How to Use
 
----
+1. Paste your text into the text box.
+2. Enter your desired speed in the "Wörter pro Minute" field.
+3. Click **Start** or press `Enter`.
 
-## 🛠 Nutzung & Steuerung
-
-### Starten der App
-1. Kopiere deinen Text in das Textfeld.
-2. Gib deine gewünschte Geschwindigkeit (WPM) ein.
-3. Drücke **Start** (oder `Enter`).
-
-### Während des Lesens (Tastenkürzel)
-| Taste | Aktion |
+### Controls during reading:
+| Key | Action |
 | :--- | :--- |
-| `Leertaste` | **Pause / Play** |
-| `Pfeil links` | **5 Wörter zurück** |
-| `Pfeil rechts` | **5 Wörter vor** |
-| `Escape` | **Beenden** (zurück zum Menü) |
+| `Space` | **Pause / Play** |
+| `Left Arrow` | **Back 5 words** |
+| `Right Arrow` | **Forward 5 words** |
+| `Escape` | **Quit** (return to menu) |
 
----
+## Development
 
-## 🏗 Installation (Entwickler)
-
-Falls du die App aus dem Quellcode starten möchtest:
-
-1. **Repository klonen**
-2. **Virtuelle Umgebung erstellen:**
+### Running from source:
+1. Ensure you have Python installed.
+2. Create a virtual environment and activate it:
    ```bash
    python -m venv .venv
    source .venv/bin/activate
    ```
-3. **Starten:**
+3. Run the script:
    ```bash
    python SpeedReader.py
    ```
 
-### Als App builden (macOS)
-Um die eigenständige `.app` zu erstellen, wurde PyInstaller verwendet:
+### Building the App (macOS):
+The app is packaged using PyInstaller:
 ```bash
+pip install pyinstaller
 pyinstaller --windowed --name "Speedreader" --icon "icon.icns" SpeedReader.py
 ```
 
----
-
-## 🎨 Icon
-Das Projekt nutzt ein individuelles `icon.icns`, um sich nahtlos in dein macOS-Dock einzufügen.
-
----
-
-Viel Spaß beim schnellen Lesen! 🚀
+## Files
+- `SpeedReader.py`: The main Python script.
+- `icon.icns`: Application icon for macOS.
+- `dist/Speedreader.app`: The compiled application (after building).
