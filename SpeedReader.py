@@ -1,5 +1,5 @@
 import tkinter as tk
-
+from tkinter import ttk
 
 wpm = 400
 current_index = 0
@@ -13,6 +13,9 @@ def run(event=None):
     text = text_input.get("1.0", tk.END).strip()
     words = text.split()
     
+    progress = ttk.Progressbar(root, maximum=len(words), mode='determinate', length=400)
+    progress.pack(pady=10)
+    
     display_label = tk.Label(root, text="", font=("Helvetica", 40))
     display_label.pack(expand=True)
 
@@ -21,11 +24,12 @@ def run(event=None):
     button_frame.pack(pady=10)
 
     def quit_reading(event=None):
-        nonlocal display_label, button_frame
+        nonlocal display_label, button_frame, progress
         if timer_id:
             root.after_cancel(timer_id)
-        display_label.pack_forget()
-        button_frame.pack_forget()
+        display_label.destroy()
+        button_frame.destroy()
+        progress.destroy()
         # Tastenkürzel für das Lesen entfernen
         root.unbind('<space>')
         root.unbind('<Left>')
@@ -100,6 +104,7 @@ def run(event=None):
         if index < len(words):
             display_label.config(text=words[index])
             timer_id = root.after(delay, lambda: show_word(index + 1))
+            progress['value'] = index + 1
         else:
             quit_reading()
 
