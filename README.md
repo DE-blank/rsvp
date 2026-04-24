@@ -59,4 +59,4 @@ pyinstaller --windowed --name "Speedreader" --icon "icon.icns" SpeedReader.py
 
 ---
 
-**Disclaimer:** This project, including parts of its source code and this documentation, was generated with the assistance of AI.
+**Disclaimer:** Parts of this project, including parts of its source code and this documentation, was generated with the assistance of AI.
