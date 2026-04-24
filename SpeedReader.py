@@ -13,7 +13,17 @@ def run(event=None):
     text = text_input.get("1.0", tk.END).strip()
     words = text.split()
     
-    progress = ttk.Progressbar(root, maximum=len(words), mode='determinate', length=400)
+    style = ttk.Style()
+    style.theme_use('clam') # 'clam' erlaubt abgerundete Formen und Farben
+    style.configure("white.Horizontal.TProgressbar", 
+                    troughcolor='black',    # Hintergrund des Balkens schwarz
+                    background='white',     # Fortschritt weiß
+                    bordercolor='black',    # Randfarbe schwarz für nahtlosen Übergang
+                    lightcolor='white',     # Glanz-Effekt weiß
+                    darkcolor='white',      # Schatten-Effekt weiß
+                    thickness=15)           # Etwas schlanker für die "Form"
+    
+    progress = ttk.Progressbar(root, maximum=len(words), mode='determinate', length=400, style="white.Horizontal.TProgressbar")
     progress.pack(pady=10)
     
     display_label = tk.Label(root, text="", font=("Helvetica", 40))
@@ -65,6 +75,8 @@ def run(event=None):
             display_label.config(text=words[current_index])
         if pp_button.config('text')[-1] == "||":
             show_word(current_index)
+            
+        progress['value'] = current_index
 
     def go_forward(event=None):
         global current_index, timer_id
@@ -75,6 +87,8 @@ def run(event=None):
             display_label.config(text=words[current_index])
         if pp_button.config('text')[-1] == "||":
             show_word(current_index)
+            
+        progress['value'] = current_index
 
     back_button = tk.Button(button_frame, text="<<-", command=go_back, width=10, height=2)
     back_button.grid(row=0, column=2, padx=10)
